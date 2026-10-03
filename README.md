@@ -52,10 +52,10 @@ app/
     media/       MediaSet (비정형 원천)
     datasets/    Dataset (정형) — 온톨로지 모듈과의 접점이 될 예정
     pipelines/
-      transforms/      노드 카탈로그 (파이프라인 빌더 메뉴와 매핑)
-        column_ops.py    데이터 변환 > 컬럼명/타입 통일, 선택, 제거, 표준화
-        extract_ops.py   데이터 변환 > PDF/이미지/엑셀 추출, 배열 분해, 구조체 필드 추출
-        cleanup_ops.py   데이터 변환 > 데이터 표준화, 문자 정리, 필터
+      transforms/      노드 카탈로그 (파이프라인 빌더 메뉴와 매핑) 
+        column_ops.py    데이터 변환 > 컬럼명/ 데이터 타입 통일, 컬럼 선택, 컬럼 제거, 컬럼명 표준화
+        extract_ops.py   데이터 변환 > PDF에서 텍스트/ 이미지에서 텍스트/ 엑셀에서 JSON 추출, 배열 펼치기, 구조체 필드 추출
+        cleanup_ops.py   데이터 변환 > 값 통일, 문자 정리, 필터
         combine/         데이터 결합(join) / 데이터 통합(union)
         llm_column.py    AI 사용
       output/      데이터 출력 (새 Dataset / 새 Entity 타입) — Transform과 다른 유스케이스라 분리
@@ -66,7 +66,7 @@ migrations/        Alembic
 deploy/            Dockerfile, docker-compose(base/local/cloud)
 ```
 
-## 분리 대비 규칙 (지키면 공짜, 나중에 서버 분리 시 핵심)
+## 분리 대비 규칙 (나중에 서버 분리 시 핵심)
 
 1. 한 도메인의 서비스 코드는 다른 도메인의 테이블을 직접 쿼리하지 않는다.
    항상 `media.service.*`, `datasets.service.*` 같은 함수 호출로만 접근한다.
