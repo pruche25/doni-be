@@ -9,6 +9,7 @@ dependencies = [
   "asyncpg",
   "alembic",
   "pydantic-settings",
+  "pydantic[email]",
   "python-multipart",
   "celery[redis]",
   "redis",
